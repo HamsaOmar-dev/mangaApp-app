@@ -12,7 +12,6 @@ import {
 import axios from "axios";
 
 import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 
 const Home = () => {
   const [mangaList, setMangaList] = useState([]);
@@ -20,7 +19,7 @@ const Home = () => {
 
   async function getMangaList() {
     await axios
-      .get("http://192.168.1.171:5000/")
+      .get("https://manga-app-backend.vercel.app/")
       .then((data) => {
         setMangaList(data.data);
         setLoading(false);
@@ -43,7 +42,9 @@ const Home = () => {
         <View style={styles.list}>
           <FlatList
             ListHeaderComponent={() => (
-              <Text style={styles.headlineText}>Latest</Text>
+              <Text style={styles.headlineText}>
+                Latest
+              </Text>
             )}
             data={mangaList}
             renderItem={(itemData) => {
@@ -67,19 +68,18 @@ const Home = () => {
                       {JSON.parse(itemData.item.latestChapters).map(
                         (chapterInfo, index) => {
                           return (
-                            <View>
+                            <View key={index}>
                               <Pressable
                                 onPress={() => {
                                   Linking.openURL(chapterInfo.link);
                                 }}
                               >
                                 <View style={styles.chapterTextContainer}>
-                                  <Text style={styles.chapterText} key={index}>
+                                  <Text style={styles.chapterText}>
                                     {chapterInfo.chapter.slice(0, 12)}
                                   </Text>
                                   <Text
                                     style={styles.chapterText}
-                                    key={index + 4}
                                   >
                                     {chapterInfo.time}
                                   </Text>
@@ -97,7 +97,6 @@ const Home = () => {
           />
         </View>
       )}
-      {/* <Navbar /> */}
     </View>
   );
 };
@@ -131,7 +130,8 @@ const styles = StyleSheet.create({
   },
   list: {
     height: "85%",
-    paddingHorizontal: 20,
+    paddingRight: 20,
+    paddingLeft: 5,
   },
   listItem: {
     margin: 10,
