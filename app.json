@@ -1,31 +1,29 @@
 {
   "expo": {
-    "name": "mangaApp-app",
-    "slug": "mangaApp-app",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/AppIcons/appstore.png",
-    "userInterfaceStyle": "light",
+    "name": "LatestAsura",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./AppIcons/appstore.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#16151D"
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": ["**/*"],
+    "version": "1.0.0",
+    "slug": "LatestAsura",
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.hamsaomar.latestasura",
+      "buildNumber": "1.0.0"
     },
     "android": {
+      "package": "com.hamsaomar.latestasura",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/AppIcons/playstore.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/adaptive-icon.png"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.ico"
+    "extra": {
+      "eas": {
+        "projectId": "0a0f0059-9616-4f66-8523-b687164100e3"
+      }
     }
   }
 }
